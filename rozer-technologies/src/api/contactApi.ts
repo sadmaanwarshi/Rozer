@@ -30,8 +30,8 @@ export interface ContactResponse {
 export const contactApi = createApi({
   reducerPath: "contactApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000",
-  }),
+  baseUrl: import.meta.env.VITE_API_URL,
+}),
   endpoints: (builder) => ({
     createContact: builder.mutation<ContactResponse, ContactRequest>({
       query: (body) => ({
