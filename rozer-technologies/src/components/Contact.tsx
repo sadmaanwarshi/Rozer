@@ -10,7 +10,7 @@ import {
 import { useCreateContactMutation } from "../api/contactApi";
 
 const CONTACT_INFO = [
-  { icon: Mail, label: "Email", value: "spwarshi@gmail.com" },
+  { icon: Mail, label: "Email", value: "info@rozer.online" },
   { icon: Phone, label: "Phone / WhatsApp", value: "+91 7004431954" },
   { icon: MapPin, label: "Office", value: "Kolkata, India" },
 ];

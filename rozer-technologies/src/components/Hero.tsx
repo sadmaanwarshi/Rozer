@@ -5,7 +5,7 @@ const CONTACT_ITEMS = [
     icon: MapPin,
     label: "Address",
     value: [
-      "Based in Jharkhand, India",
+      "Based in Kolkata, India",
       "Serving clients across India and worldwide",
     ],
   },
@@ -21,8 +21,8 @@ const CONTACT_ITEMS = [
     icon: Mail,
     label: "Email",
     value: [
-      "spwarshi@gmail.com",
-      // "contact@rozertech.com",
+      "info@rozer.online",
+      "sadmaan.warshi@rozer.online",
     ],
   },
   {

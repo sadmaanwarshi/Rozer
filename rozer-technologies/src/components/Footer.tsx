@@ -162,7 +162,7 @@ const Footer = () => {
         <div className="border-t border-[#1F2940] mt-20 pt-10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-[#7D8BA9] text-sm">
-              © 2025 Rozer Technologies Pvt. Ltd. All rights reserved.
+              © 2026 Rozer Technologies Pvt. Ltd. All rights reserved.
             </p>
             <div className="flex gap-8 text-sm text-[#7D8BA9]">
               <a href="#" className="hover:text-white">Privacy Policy</a>
