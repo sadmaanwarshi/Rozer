@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Code2 } from "lucide-react";
+import logo from "../assets/rozer-1.png";
 
 interface NavLink {
   label: string;
@@ -62,27 +63,13 @@ export default function Navbar() {
       <nav className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
         {/* Logo */}
 
-        <a href="#" className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600">
-            <Code2
-              className="h-4.5 w-4.5 text-white"
-              strokeWidth={2.5}
-            />
-          </span>
-
-          <span className="text-xl font-bold tracking-tight">
-            <span
-              className={`transition-colors duration-300 ${scrolled ? "text-slate-900" : "text-white"
-                }`}
-            >
-              Rozer
-            </span>
-
-            <span className="text-blue-600">
-              Technologies
-            </span>
-          </span>
-        </a>
+        <a href="/" className="flex items-center">
+  <img
+    src={logo}
+    alt="Rozer Technologies"
+    className="h-10 w-auto object-contain"
+  />
+</a>
 
         {/* Navigation */}
 
