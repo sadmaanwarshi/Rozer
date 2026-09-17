@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Code2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import logo from "../assets/rozer-1.png";
 
 interface NavLink {
