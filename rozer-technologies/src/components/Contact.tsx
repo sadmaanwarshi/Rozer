@@ -16,12 +16,13 @@ const CONTACT_INFO = [
 ];
 
 const SERVICES = [
+  "Technology Consulting",
+  "Digital Transformation",
+  "Business Automation",
+  "AI & Intelligent Solutions",
   "Custom Software Development",
-  "ERP Systems",
-  "HRMS Solutions",
-  "CRM Platforms",
-  "AI & Automation",
-  "Web Applications",
+  "Managed Technology",
+  "Not Sure Yet — Need Guidance",
 ];
 
 const COUNTRY_CODES = [
@@ -115,14 +116,14 @@ export default function Contact() {
             </div>
 
             <h2 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
-              Let's Build Something{" "}
-              <span className="text-blue-500">Remarkable</span>
+              Let's Understand Your{" "}
+              <span className="text-blue-500">Business Challenge</span>
             </h2>
 
             <p className="mt-4 max-w-md text-lg leading-relaxed text-slate-400">
-              Tell us about your project. Our team will review your
-              requirements and schedule a free 45-minute consultation within
-              24 hours.
+              Tell us about your business, current challenges and what you would like to
+              improve. We'll review your requirements and explore where technology can
+              create meaningful value.
             </p>
 
             <div className="mt-8 space-y-5">
@@ -156,16 +157,16 @@ export default function Contact() {
           <div className="mt-8 flex h-36 flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] transition-colors hover:border-white/20">
             <MapPin className="h-5 w-5 text-blue-400" />
             <p className="mt-2 text-sm font-medium text-slate-300">
-              Bengaluru, Karnataka, India
+               Kolkata, West Bengal, India
             </p>
-            <p className="text-xs text-slate-500">Global Tech Hub</p>
+            <p className="text-xs text-slate-500">Serving businesses across India and worldwide</p>
           </div>
         </div>
 
         {/* FORM */}
         <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-md sm:p-8">
           <h3 className="text-xl font-bold text-white">
-            Book Free Consultation
+            Book a Technology Consultation
           </h3>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-5">
@@ -260,7 +261,7 @@ export default function Contact() {
             {/* Service */}
             <div>
               <label className="mb-1.5 block text-xs font-medium text-slate-300">
-                Service Required
+                How Can We Help?
               </label>
 
               <select
@@ -285,7 +286,7 @@ export default function Contact() {
             {/* Project Details */}
             <div>
               <label className="mb-1.5 block text-xs font-medium text-slate-300">
-                Project Details
+                Business Challenge / Goals
               </label>
 
               <textarea
@@ -293,7 +294,7 @@ export default function Contact() {
                 rows={4}
                 value={form.details}
                 onChange={handleChange}
-                placeholder="Tell us about your project, current challenges, and goals..."
+                placeholder="Tell us what your business is trying to improve, where you are facing challenges, or what process you think could work better..."
                 className="w-full resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>

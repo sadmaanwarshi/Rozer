@@ -1,71 +1,52 @@
 import {
-  Code2,
-  Layers3,
-  Users,
-  BarChart3,
+  Search,
+  RefreshCw,
+  Workflow,
   Bot,
-  Globe,
-  Smartphone,
-  Waypoints,
-  CloudCog,
+  Code2,
+  Settings2,
 } from "lucide-react";
 
 export const services = [
   {
-    title: "Custom Software Development",
+    title: "Technology Consulting",
     description:
-      "Tailored solutions built from scratch to match your exact business workflows and requirements.",
-    icon: Code2,
+      "We understand your business, workflows and challenges to identify where technology can create the greatest impact.",
+    icon: Search,
   },
+
   {
-    title: "ERP Systems",
+    title: "Digital Transformation",
     description:
-      "Unified enterprise resource planning platforms that connect finance, operations, and supply chain.",
-    icon: Layers3,
+      "Modernize outdated processes, disconnected systems and inefficient workflows with practical technology solutions.",
+    icon: RefreshCw,
   },
+
   {
-    title: "HRMS Solutions",
+    title: "Business Automation",
     description:
-      "Comprehensive human resource management: payroll, attendance, performance, and onboarding.",
-    icon: Users,
+      "Reduce repetitive manual work by automating business processes, communication, data movement and operational workflows.",
+    icon: Workflow,
   },
+
   {
-    title: "CRM Platforms",
+    title: "AI & Intelligent Solutions",
     description:
-      "Customer relationship management tools that streamline sales pipelines and customer engagement.",
-    icon: BarChart3,
-  },
-  {
-    title: "AI & Automation",
-    description:
-      "Intelligent automation, ML models, and AI-powered workflows to eliminate repetitive tasks.",
+      "Identify and implement practical AI opportunities that improve productivity, decision-making and customer experience.",
     icon: Bot,
   },
-  {
-    title: "Web Applications",
-    description:
-      "Full-stack web applications with modern architecture, optimized for performance and scale.",
-    icon: Globe,
-  },
-
-  // New Cards
 
   {
-    title: "Mobile Apps",
+    title: "Custom Software Development",
     description:
-      "Cross-platform iOS and Android apps with native-quality UX and offline capabilities.",
-    icon: Smartphone,
+      "After understanding your business requirements, we design and build software tailored to your actual workflows and goals.",
+    icon: Code2,
   },
+
   {
-    title: "API Development",
+    title: "Managed Technology",
     description:
-      "RESTful and GraphQL APIs designed for reliability, documentation, and third-party integrations.",
-    icon: Waypoints,
-  },
-  {
-    title: "Cloud & DevOps",
-    description:
-      "Cloud migration, container orchestration, CI/CD pipelines, and infrastructure as code.",
-    icon: CloudCog,
+      "Ongoing monitoring, support, maintenance and continuous improvement to keep your technology reliable and effective.",
+    icon: Settings2,
   },
 ];
