@@ -71,7 +71,7 @@ export default function Hero() {
               <Sparkles className="h-3.5 w-3.5 text-blue-400" />
 
               <span className="text-[11px] font-semibold tracking-[0.15em] text-blue-300">
-                TECHNOLOGY CONSULTING & DIGITAL TRANSFORMATION
+                TECHNOLOGY CONSULTING & CUSTOM SOFTWARE
               </span>
             </div>
 
