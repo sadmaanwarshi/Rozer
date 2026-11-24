@@ -1,18 +1,19 @@
 import pool from "../config/db.js";
-
+import { randomInt } from "node:crypto";
 /**
  * Create a new contact
  */
-export const createContact = async ({
+export async function createContact({
   fullName,
   email,
   phoneNumber,
   companyAddress,
   serviceRequired,
   projectDetails,
-}) => {
+}) {
   const query = `
-    INSERT INTO contacts (
+    INSERT INTO public.contacts (
+      reference_number,
       full_name,
       email,
       phone_number,
@@ -20,9 +21,11 @@ export const createContact = async ({
       service_required,
       project_details
     )
-    VALUES ($1, $2, $3, $4, $5, $6)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    ON CONFLICT (reference_number) DO NOTHING
     RETURNING
       id,
+      reference_number,
       full_name,
       email,
       phone_number,
@@ -30,22 +33,31 @@ export const createContact = async ({
       service_required,
       project_details,
       created_at,
-      updated_at;
+      updated_at,
+      acknowledgement_resend_id,
+      notification_resend_id;
   `;
 
-  const values = [
-    fullName,
-    email,
-    phoneNumber,
-    companyAddress,
-    serviceRequired,
-    projectDetails,
-  ];
+  for (let attempt = 0; attempt < 10; attempt += 1) {
+    const referenceNumber = randomInt(100000, 1000000);
 
-  const { rows } = await pool.query(query, values);
+    const { rows } = await pool.query(query, [
+      referenceNumber,
+      fullName,
+      email,
+      phoneNumber,
+      companyAddress,
+      serviceRequired,
+      projectDetails,
+    ]);
 
-  return rows[0];
-};
+    if (rows.length > 0) {
+      return rows[0];
+    }
+  }
+
+  throw new Error("Could not generate a unique contact reference.");
+}
 
 /**
  * Get all contacts

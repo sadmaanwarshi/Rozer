@@ -9,29 +9,17 @@ export interface ContactRequest {
   projectDetails: string;
 }
 
-export interface Contact {
-  id: number;
-  full_name: string;
-  email: string;
-  phoneNumber: string;
-  company_address: string;
-  service_required: string;
-  project_details: string;
-  created_at: string;
-  updated_at: string;
-}
-
 export interface ContactResponse {
   success: boolean;
-  count: number;
-  data: Contact[];
+  message: string;
+  reference: number;
 }
 
 export const contactApi = createApi({
   reducerPath: "contactApi",
   baseQuery: fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_URL,
-}),
+    baseUrl: import.meta.env.VITE_API_URL,
+  }),
   endpoints: (builder) => ({
     createContact: builder.mutation<ContactResponse, ContactRequest>({
       query: (body) => ({
