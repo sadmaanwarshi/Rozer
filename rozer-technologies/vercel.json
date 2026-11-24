@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "rozer.online" }],
+      "destination": "https://www.rozertechnologies.com/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.rozer.online" }],
+      "destination": "https://www.rozertechnologies.com/:path*",
+      "statusCode": 301
+    }
+  ]
+}

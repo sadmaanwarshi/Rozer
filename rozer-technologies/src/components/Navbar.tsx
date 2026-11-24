@@ -1,18 +1,12 @@
 import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
 import logo from "../assets/rozer-1.png";
 
-interface NavLink {
-  label: string;
-  id: string;
-}
-
-const NAV_LINKS: NavLink[] = [
+const NAV_LINKS = [
   { label: "Services", id: "services" },
   { label: "Industries", id: "industries" },
   { label: "Portfolio", id: "portfolio" },
   { label: "Process", id: "process" },
-  { label: "Blog", id: "blog" },
   { label: "Contact", id: "contact" },
 ];
 
@@ -20,109 +14,79 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      console.log(window.scrollY);
-      setScrolled(window.scrollY > 40);
-    };
+    const updateScrollState = () => setScrolled(window.scrollY > 40);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
 
-  const scrollToSection = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    id: string
-  ) => {
-    e.preventDefault();
-
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
+  const linkClass = scrolled
+    ? "text-slate-700 hover:text-blue-600"
+    : "text-slate-300 hover:text-white";
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-500 ${scrolled
-        ? "bg-white/95 backdrop-blur-xl shadow-md border-b border-gray-200"
-        : "bg-[#0A0E1C] border-b border-white/10"
-        }`}
+      className={`sticky top-0 z-50 w-full border-b transition-colors ${
+        scrolled
+          ? "border-slate-200 bg-white/95 shadow-sm backdrop-blur"
+          : "border-white/10 bg-[#0a0e1c]"
+      }`}
     >
-      {/* Background Dot Pattern */}
-      <div
-        className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${scrolled ? "opacity-0" : "opacity-[0.12]"
-          }`}
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
-        }}
-      />
+      <nav
+        aria-label="Main navigation"
+        className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10"
+      >
+        <a href="/">
+          <img
+            src={logo}
+            alt="Rozer Technologies"
+            className="h-10 w-auto object-contain"
+          />
+        </a>
 
-      <nav className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
-        {/* Logo */}
-
-        <a href="/" className="flex items-center">
-  <img
-    src={logo}
-    alt="Rozer Technologies"
-    className="h-10 w-auto object-contain"
-  />
-</a>
-
-        {/* Navigation */}
-
-        <ul className="hidden md:flex items-center gap-9">
-          {NAV_LINKS.map((link) => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
-                onClick={(e) => scrollToSection(e, link.id)}
-                className={`text-sm font-medium transition-colors duration-300 ${scrolled
-                  ? "text-gray-600 hover:text-blue-600"
-                  : "text-slate-300 hover:text-white"
-                  }`}
-              >
-                {link.label}
+        <ul className="hidden items-center gap-8 lg:flex">
+          {NAV_LINKS.map(({ label, id }) => (
+            <li key={id}>
+              <a href={`#${id}`} className={`text-sm font-medium ${linkClass}`}>
+                {label}
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Right Buttons */}
+        <a
+          href="#contact"
+          className="hidden items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 lg:inline-flex"
+        >
+          Book Consultation
+          <ArrowRight aria-hidden="true" className="h-4 w-4" />
+        </a>
 
-        <div className="hidden md:flex items-center gap-6">
-          <button
-            type="button"
-            onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              })
-            }
-            className={`text-[13px] font-medium transition-colors duration-300 ${scrolled
-              ? "text-gray-700 hover:text-blue-600"
-              : "text-slate-300 hover:text-white"
-              }`}
+        <details className="lg:hidden">
+          <summary
+            className={`flex cursor-pointer list-none items-center gap-2 rounded-md px-3 py-2 text-sm font-medium [&::-webkit-details-marker]:hidden ${linkClass}`}
           >
-            Sign In
-          </button>
+            <Menu aria-hidden="true" className="h-5 w-5" />
+            Menu
+          </summary>
 
-          <button
-            type="button"
-            onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              })
-            }
-            className="group flex items-center gap-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-4 py-2 text-[13px] font-semibold text-white shadow-lg shadow-blue-900/20 transition-all duration-300 hover:scale-105 hover:shadow-xl"
-          >
-            Book Consultation
-            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-          </button>
-        </div>
+          <ul className="absolute inset-x-0 top-full space-y-1 border-t border-white/10 bg-[#0a0e1c] p-4 shadow-lg">
+            {NAV_LINKS.map(({ label, id }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  onClick={(event) => {
+                    event.currentTarget.closest("details")?.removeAttribute("open");
+                  }}
+                  className="block rounded-md px-3 py-2 text-sm font-medium text-slate-200 hover:bg-white/10 focus-visible:bg-white/10"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
       </nav>
     </header>
   );

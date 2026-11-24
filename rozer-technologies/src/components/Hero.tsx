@@ -25,14 +25,14 @@ const CONTACT_ITEMS = [
     icon: Mail,
     label: "Email",
     value: [
-      "info@rozer.online",
-      "sadmaan.warshi@rozer.online",
+      "info@rozertechnologies",
+      // "sadmaan.warshi@rozer.online",
     ],
   },
   {
     icon: Clock,
     label: "Office Hours",
-    value: ["Monday - Friday 9:00 AM - 7:00 PM"],
+    value: ["Monday - Saturday 9:00 AM - 7:00 PM"],
   },
 ];
 
