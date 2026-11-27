@@ -20,6 +20,15 @@ const TESTIMONIALS: Testimonial[] = [
     avatarColor: "bg-blue-700",
     logo: "https://www.quantumedge.co.in/favicon.png",
   },
+    {
+    quote:
+      "Built a professional HCM that gives Keross Research And Development portal tailored specifically to our team's needs. The system is reliable, secure, and drastically simplified our daily HR operations. Highly recommended for anyone looking for custom enterprise software.",
+    name: "Keross R&D",
+    role: "Sadmaan Warshi",
+    initials: "GM",
+    avatarColor: "bg-blue-700",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSZTPa48FAxocJb8ChKrBCoE6RQ8WU0eMLxHo9U-2iJ4WL9wgTUf1u2X8&s=10",
+  },
   {
     quote:
       "The telemedicine platform Rozer built cut our patient no-show rate by more than half. Their team understood HIPAA compliance inside and out and delivered ahead of schedule.",
